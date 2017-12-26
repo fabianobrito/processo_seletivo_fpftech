@@ -1,0 +1,73 @@
+<div class="page-header text-center">
+	<h1>ADICIONAR/ALTERAR PRODUTO</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Descrição</label>
+			<input name="description" class="form-control" ng-model="produto.description" ng-maxlength="100" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.description.$error.required"
+				class="form-control alert-danger">
+				Descrição é obrigatório
+			</span>
+			<span ng-show="formulario.$submitted && formulario.description.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 100 caracteres!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>URL DA IMAGEM</label>
+			<input name="imageUrl" class="form-control" ng-model="produto.imageUrl" required>
+
+			<span ng-show = "formulario.$submitted && formulario.imageUrl.$error.required" 
+				class="form-control alert-danger">
+				URL obrigatória
+			</span> 
+		</div>
+
+		<div class="form-group">
+            <label>ORIGEM</label>
+            <select name="origin" 
+                    ng-model="produto.origin" class="form-control" required>
+				<option value="">Escolha uma origem</option>
+				<option>Nacional</option>
+				<option>Importado</option>
+            </select>
+            <span ng-show="formulario.$submitted && formulario.origin.$error.required" class="form-control alert-danger">
+                Origem é obrigatório
+            </span>
+		</div>
+
+		<div class="form-group">
+			<label>CATEGORIA</label>
+			<input name="category" class="form-control" ng-model="produto.category" required>
+
+			<span ng-show = "formulario.$submitted && formulario.category.$error.required" 
+				class="form-control alert-danger">
+				Categoria é obrigatória
+			</span> 
+		</div>
+		
+		<div class="form-group">
+			<label>PREÇO</label>
+			<input name="price" type="number" value="1000" min="0" step="0.01" 
+				class="form-control" ng-model="produto.price" required>
+
+			<span ng-show = "formulario.$submitted && formulario.price.$error.required" 
+				class="form-control alert-danger">
+				Preço é obrigatório
+			</span> 
+		</div>
+		
+		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
+		<a href="/produto" class="btn btn-primary">Voltar</a>
+		<hr>
+	</div>
+	<div class="col-md-6">
+		<minha-foto url="{{produto.imageUrl}}" titulo="{{produto.description}}"></minha-foto>
+	</div>
+</form>

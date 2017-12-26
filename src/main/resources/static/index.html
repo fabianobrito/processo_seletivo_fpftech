@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="lojaOnline">
+<head>
+<base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Loja Online</title>
+<link rel="stylesheet" href="app/assets/components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="app/assets/components/bootstrap/dist/css/bootstrap-theme.min.css">
+<script src="app/assets/components/angular/angular.min.js"></script>
+<script	src="app/assets/components/angular-animate/angular-animate.min.js"></script>
+<script src="app/assets/components/angular-route/angular-route.min.js"></script>
+<script src="app/assets/components/angular-resource/angular-resource.min.js"></script>
+<script src="app/app.js"></script>
+<script src="app/modules/shared/services/service.js"></script>
+<script src="app/modules/produto/produtosController.js"></script>
+<script src="app/modules/produto/produtoController.js"></script>
+<script src="app/modules/shared/directives/diretivas.js"></script>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" 
+									  data-toggle="collapse" 
+									  data-target="#bs-example-navbar-collapse-1" 
+									  aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Loja Online</a>
+			</div>
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<div class="container">
+		<ng-view></ng-view>
+	</div>
+</body>
+</html>
